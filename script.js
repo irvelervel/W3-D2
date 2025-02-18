@@ -73,3 +73,5 @@ console.log('HEADER', h1Title.parentElement)
 // "array" con dentro TUTTI i suoi figli diretti
 console.log('HEADER CHILDREN', header.children)
 header.children[2] // nav
+
+// proseguiamo con il punto 2) nel file ./blog.js
