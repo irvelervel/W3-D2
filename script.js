@@ -29,7 +29,7 @@ console.log('header', header)
 // b) tramite l'attributo "class"
 const elements = document.getElementsByClassName('menu-element')
 // recupera i riferimenti di TUTTI gli elementi dotati di class "menu-element" e
-// le li ritorna in un "array" (una lista di elementi)
+// le li ritorna in UN ARRAY (una lista di elementi)
 console.log('menu elements', elements)
 // getElementsByClassName torna SEMPRE UN ARRAY!
 
@@ -38,3 +38,38 @@ const navigations = document.getElementsByClassName('navigation')
 // ma ho solo UN elemento dotato di quella classe...
 console.log('navigations', navigations)
 // ...quindi in questo caso mi tornerà un ARRAY con dentro un elemento!!!
+
+// c) tramite il nome del tag
+const paragraphs = document.getElementsByTagName('p')
+// ho recuperato UN ARRAY con dentro i riferimenti a TUTTI i tag <p>
+console.log('PRIMO PARAGRAFO', paragraphs[0]) // primo p
+console.log('ULTIMO PARAGRAFO', paragraphs[paragraphs.length - 1]) // ultimo p
+
+const bodies = document.getElementsByTagName('body')
+console.log('BODIES', bodies)
+
+// es., voglio selezionare lo span con contenuto "TOPOGIGIO"
+// potrei utilizzare la sua classe, "special-text"
+document.getElementsByClassName('special-text')
+
+// d) tramite un SELETTORE CSS
+const topoGigio = document.querySelector('p .special-text')
+// p .special-text { }
+console.log('TOPOGIGIO', topoGigio)
+
+// e) tramite un SELETTORE CSS, ma con un ARRAY come valore di ritorno!
+const carli = document.querySelectorAll('article span') // tutti gli span dentro gli article
+console.log('CARLI', carli)
+
+// querySelector e querySelectorAll sono metodi potentissimi ma da grandi poteri
+// derivano grandi responsabilità! utilizziamoli solamente quando i metodi più "semplici"
+// non ci portano al risultato... non utilizziamoli per cercare una classe o un id!
+
+// OGNI elemento trovato possiede una proprietà "parentElement", che altro non è che
+// un riferimento al SUO elemento contenitore (il suo "parend")
+console.log('HEADER', h1Title.parentElement)
+
+// OGNI elemento trovato possiede una proprietà "children", che altro non è che un
+// "array" con dentro TUTTI i suoi figli diretti
+console.log('HEADER CHILDREN', header.children)
+header.children[2] // nav
