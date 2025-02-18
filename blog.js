@@ -46,3 +46,66 @@ const addUnderline = function () {
 }
 
 addUnderline()
+
+// applicare uno stile inline ad un elemento
+const makeArchiveRed = function () {
+  // selezioniamo l'h3 all'interno dell'aside con id="archive"
+  // const title = document.querySelector('#archive h3')
+  // o, in alternativa:
+  // document.querySelector('aside h3')
+  const title = document.getElementById('h3-title')
+  title.style.color = 'red'
+  title.style.fontStyle = 'italic'
+  title.style.fontSize = '1.5em'
+}
+
+makeArchiveRed()
+
+// CAMBIARE IL VALORE DEGLI ATTRIBUTI IN HTML
+// cambiamo la src di un'immagine già caricata nella pagina
+
+const makeItACat = function () {
+  // prendo TUTTE le immagini
+  // 1)
+  const allTheImages = document.getElementsByTagName('img')
+  const doggo = allTheImages[0]
+  // 2)
+  doggo.setAttribute('src', 'https://placecats.com/400/400')
+}
+
+const makeItACatToggle = function () {
+  // prendo TUTTE le immagini
+  // 1)
+  const allTheImages = document.getElementsByTagName('img')
+  const doggo = allTheImages[0]
+  // 2)
+  // getAttribute mi fornisce il VALORE ATTUALE di un attributo
+  if (doggo.getAttribute('src') === 'https://placedog.net/400/400') {
+    // l'immagine è un cane! la facciamo diventare un gatto
+    doggo.setAttribute('src', 'https://placecats.com/400/400')
+  } else {
+    // l'immagine è un gatto! la facciamo diventare cane
+    doggo.setAttribute('src', 'https://placedog.net/400/400')
+  }
+}
+
+// CREARE ELEMENTI NUOVI
+// aggiungiamo nuovi elementi alla <ul> nell'aside
+const addALink = function () {
+  // selezioniamo innanzitutto l'elemento su cui andremo ad INSERIRE il nuovo link
+  // la lista dentro l'aside
+  const list = document.querySelector('aside ul')
+  // creiamo un nuovo elemento di lista
+  const newLi = document.createElement('li') // <li></li>
+  // creiamo l'ancora da inserire nell'li
+  const newAnchor = document.createElement('a') // <a></a>
+  // inserisco l'href sull'ancora
+  newAnchor.setAttribute('href', '#') // <a href="#"></a>
+  newAnchor.innerText = 'Maggio 2024' // <a href="#">Maggio 2024</a>
+  // ora l'ancora dovrebbe essere inserita nell'li
+  newLi.appendChild(newAnchor) // <li> <a href="#">Maggio 2024</a> </li>
+  // inseriamolo dentro la lista
+  list.appendChild(newLi)
+}
+
+// appendChild aggiunge un elemento come ULTIMO FIGLIO di un altro!
